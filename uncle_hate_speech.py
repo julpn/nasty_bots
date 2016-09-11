@@ -1,13 +1,19 @@
 # -*- coding: utf-8 -*-
+from tweepy import Stream
 
-from uncle_keys import consumer_key, consumer_secret, access_token, access_token_secret
+from uncle_keys import consumer_key, consumer_secret, access_token, access_token_secret, user_id
 from tweet_maker import make_that_tweet
 from bot import poster
+from reply import ReplyToTweet
+
+nice_file = 'nice_tweets.txt'
 
 def tweet_bot():
     while True:
         tweets = make_that_tweet()
         poster(tweets, consumer_key, consumer_secret, access_token, access_token_secret)
 
-if __name__ == '__main__':
-    tweet_bot()
+def uncle_reply():
+    streamListener = ReplyToTweet(consumer_key, consumer_secret, access_token, access_token_secret, user_id, nice_file)
+    twitterStream = Stream(streamListener.auth, streamListener)
+    twitterStream.userstream(_with='user')

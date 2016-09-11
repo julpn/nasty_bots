@@ -12,16 +12,16 @@ def poster(tweets, consumer_key, consumer_secret, access_token, access_token_sec
     twitterApi = API(auth)
 
     for t in tweets:
-        punc = ['.', '!', '.', '!!', ';', '']
+        punc = ['.', '..', '!', '!!', ';', ';;', ' ', '', '#', '^', '*', '@', '/', '|', '?!']
         if len(t) > 138:
             t = t[:138]
         t += punc[randint(0, len(punc) - 1)]
         if len(t) > 140:
             t = t[:139] + '…'.decode('utf-8')
 
+        print t
         try:
             twitterApi.update_status(status=t)
             time.sleep(randint(240, 350))
         except tweepy.TweepError:
-            print t
             pass
