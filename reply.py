@@ -53,11 +53,11 @@ class ReplyToTweet(StreamListener):
 
             if data.lower().find('compassion') > -1:
                 chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
-                sorry = '@' + screenName + ' ' + u"Hey again, I thought more about what you said and my reply was really rude. I sincerely apologize" + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
-                self.scheduler.add_job(self.send_reply, 'interval', args=[sorry, tweetId], seconds=60)
+                sorry = '@' + screenName + ' ' + u"Hey again, I couldn't sleep last night thinking about what you said. I sincerely apologize" + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
+                self.scheduler.add_job(self.send_reply, 'interval', args=[sorry, tweetId], seconds=5)
                 self.scheduler.start()
             else:
-                chatResponse = self.lines[randint(0, self.num_lines - 1)] + punc[randint(0, len(punc) - 1)]
+                chatResponse = (self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)]
 
             replyText = '@' + screenName + ' ' + chatResponse
 
