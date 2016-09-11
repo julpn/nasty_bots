@@ -8,6 +8,7 @@ from tweepy import OAuthHandler
 from tweepy import API
 from random import randint
 import tweepy
+import time
 
 import logging
 
@@ -15,6 +16,9 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 emojis = [u'\U0001F601',u'\U0001F602',u'\U0001F603',u'\U0001F604',u'\U0001F605',u'\U0001F606',u'\U0001F609',u'\U0001F60A',u'\U0001F60B',u'\U0001F60C',u'\U0001F60D',u'\U0001F60F',u'\U0001F612',u'\U0001F613',u'\U0001F614',u'\U0001F616',u'\U0001F618',u'\U0001F61A',u'\U0001F61C',u'\U0001F61D',u'\U0001F61E',u'\U0001F628',u'\U0001F629',u'\U0001F62A',u'\U0001F62B',u'\U0001F62D',u'\U0001F630',u'\U0001F631',u'\U0001F638',u'\U0001F639',u'\U0001F63A',u'\U0001F63B',u'\U0001F63C',u'\U0001F63D',u'\U0001F63F',u'\U0001F648',u'\U0001F649']
 punc = ['.', '', '!', '!!', '!!!', '!!!', '-', '--']
+sorrys = ['Hey, I thought about what you said last night and I am so sorry!', "Wow, I couldn't sleep night. You were right!",
+          "Hey again, I keep thinking about our conversation. I was very rude.", "Hi there, last night was really rough. You were right",
+          "I said some things I regret last night.", "I was up all night thinking about what you said. Wow."]
 
 class ReplyToTweet(StreamListener):
 
@@ -50,13 +54,10 @@ class ReplyToTweet(StreamListener):
 
             tweetId = tweet.get('id_str')
             screenName = tweet.get('user',{}).get('screen_name')
-
+            sorry = None
             if data.lower().find('compassion') > -1:
                 chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
-                
-                sorry = '@' + screenName + ' ' + u"Hey again, I couldn't sleep last night thinking about what you said. " + str(randint(50,1000)) + ' apologies' + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
-                self.scheduler.add_job(self.send_reply, 'interval', args=[sorry, tweetId], seconds=5)
-                self.scheduler.start()
+                sorry = '@' + screenName + ' ' + sorrys[randint(0, len(sorrys) - 1)] + str(randint(50,1000)) + ' apologies' + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
             else:
                 chatResponse = (self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)]
 
@@ -68,6 +69,11 @@ class ReplyToTweet(StreamListener):
             try:
                 print replyText
                 self.send_reply(replyText, tweetId)
+                if sorry:
+                    if len(sorry) > 140:
+                        sorry = replyText[0:139] + '…'
+                    time.sleep(5)
+                    self.send_reply(sorry, tweetId)
             except tweepy.TweepError:
                 replyText += ' ' + str(randint(0, 200)) + ' hugs!'
                # self.send_reply(replyText, tweetId)
