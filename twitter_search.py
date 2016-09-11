@@ -32,7 +32,6 @@ def twitterpull(term):
     header = {"Authorization": "Bearer {}".format(bearer_token),
               'Accept-Encoding': 'gzip', }
 
-    print "MAKING CALL!"
     y = 0
     while y < 3:
         params = {"q": term,
@@ -44,7 +43,6 @@ def twitterpull(term):
                              params=params,
                              headers=header)
         result = r.json()
-        print result
         for t in result['statuses']:
             all_tweets.append((t['text']).replace('\t', ' ').replace('\n', ' ').replace('\r', ' '))
             max_id = t['id_str']

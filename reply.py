@@ -57,7 +57,7 @@ class ReplyToTweet(StreamListener):
                 self.scheduler.add_job(self.send_reply, 'interval', args=[sorry, tweetId], seconds=60)
                 self.scheduler.start()
             else:
-                chatResponse = self.lines[randint(0, self.num_lines - 1)] + str(randint(0, 900))
+                chatResponse = self.lines[randint(0, self.num_lines - 1)] + punc[randint(0, len(punc) - 1)]
 
             replyText = '@' + screenName + ' ' + chatResponse
 
