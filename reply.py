@@ -53,7 +53,8 @@ class ReplyToTweet(StreamListener):
 
             if data.lower().find('compassion') > -1:
                 chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
-                sorry = '@' + screenName + ' ' + u"Hey again, I couldn't sleep last night thinking about what you said. I sincerely apologize" + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
+                
+                sorry = '@' + screenName + ' ' + u"Hey again, I couldn't sleep last night thinking about what you said. " + str(randint(50,1000)) + ' apologies' + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
                 self.scheduler.add_job(self.send_reply, 'interval', args=[sorry, tweetId], seconds=5)
                 self.scheduler.start()
             else:
@@ -65,10 +66,11 @@ class ReplyToTweet(StreamListener):
                 replyText = replyText[0:139] + '…'
 
             try:
+                print replyText
                 self.send_reply(replyText, tweetId)
             except tweepy.TweepError:
                 replyText += ' ' + str(randint(0, 200)) + ' hugs!'
-                self.send_reply(replyText, tweetId)
+               # self.send_reply(replyText, tweetId)
 
     def on_error(self, status):
         print status
