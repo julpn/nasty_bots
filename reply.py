@@ -7,6 +7,7 @@ from tweepy import OAuthHandler
 
 from tweepy import API
 from random import randint
+import tweepy
 
 import logging
 
@@ -34,7 +35,6 @@ class ReplyToTweet(StreamListener):
         for l in self.lines:
             self.num_lines += 1
         f.close()
-        self.emo = 0
 
     def send_reply(self, text, id):
         print text
@@ -64,7 +64,11 @@ class ReplyToTweet(StreamListener):
             if len(replyText) > 140:
                 replyText = replyText[0:139] + '…'
 
-            self.send_reply(replyText, tweetId)
+            try:
+                self.send_reply(replyText, tweetId)
+            except tweepy.TweepError:
+                replyText += ' ' + str(randint(0, 200)) + ' hugs!'
+                self.send_reply(replyText, tweetId)
 
     def on_error(self, status):
         print status
