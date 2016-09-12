@@ -22,7 +22,7 @@ def poster(tweets, consumer_key, consumer_secret, access_token, access_token_sec
 
     try:
         twitterApi.update_status(status=t)
-        time.sleep(randint(240, 360))
+        time.sleep(randint(300, 600))
     except tweepy.TweepError:
         pass
 
