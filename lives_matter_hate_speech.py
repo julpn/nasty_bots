@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 from tweepy import Stream
+import sys
 
 from lives_matter_keys import consumer_key, consumer_secret, access_token, access_token_secret, user_id
 from bot import poster
@@ -24,6 +25,7 @@ def lives_matter_reply():
             twitterStream = Stream(streamListener.auth, streamListener)
             twitterStream.userstream(_with='user')
         except:
+            sys.exc_info()[0]
             pass
         else:
             break
