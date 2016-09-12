@@ -20,25 +20,29 @@ filename='wtf.log',
 filemode='w')
 
 if __name__ == "__main__":
-    try:
-        # Hate speech
-        m = Thread(target=mens_bot)
-        m.start()
-        g = Thread(target=gun_bot)
-        g.start()
-        l = Thread(target=lives_matter_bot)
-        l.start()
-        u = Thread(target=tweet_bot)
-        u.start()
+    while True:
+        try:
+            # Hate speech
+            m = Thread(target=mens_bot)
+            m.start()
+            g = Thread(target=gun_bot)
+            g.start()
+            l = Thread(target=lives_matter_bot)
+            l.start()
+            u = Thread(target=tweet_bot)
+            u.start()
 
-        # Reply bots
-        mr = Thread(target=mens_reply)
-        mr.start()
-        gr = Thread(target=gun_reply)
-        gr.start()
-        lr = Thread(target=lives_matter_reply)
-        lr.start()
-        ur = Thread(target=uncle_reply)
-        ur.start()
-    except:
-        except_me()
+            # Reply bots
+            mr = Thread(target=mens_reply)
+            mr.start()
+            gr = Thread(target=gun_reply)
+            gr.start()
+            lr = Thread(target=lives_matter_reply)
+            lr.start()
+            ur = Thread(target=uncle_reply)
+            ur.start()
+        except:
+            except_me()
+            pass
+        else:
+            break
