@@ -10,7 +10,7 @@ def replace_link(text, location):
 
 def make_that_tweet():
     results = []
-    terms = ['obummer', 'sjw', 'cuck']
+    terms = ['obummer', 'sjw', 'cuck', 'feminazi']
     a_parts = []
     b_parts = []
     for term in terms:
@@ -37,6 +37,7 @@ def make_that_tweet():
                 place = text.find('http')
             except IndexError:
                 place = 0
+                pass
         results.append(text)
         x += 1
 

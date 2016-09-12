@@ -19,9 +19,8 @@ def poster(tweets, consumer_key, consumer_secret, access_token, access_token_sec
     if len(t) > 140:
         t = t[:139] + '…'.decode('utf-8')
 
-    print t
     try:
         twitterApi.update_status(status=t)
-        time.sleep(randint(240, 350))
+        time.sleep(randint(3600, 5000))
     except tweepy.TweepError:
         pass
