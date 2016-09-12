@@ -58,49 +58,55 @@ class ReplyToTweet(StreamListener):
         self.twitterApi.update_status(status=text, in_reply_to_status_id=text)
 
     def on_data(self, data):
-        tweet = json.loads(data.strip())
+        if data:
+            tweet = json.loads(data.strip())
+            print tweet
 
-        retweeted = tweet.get('retweeted')
-        from_self = tweet.get('user',{}).get('id_str','') == self.user_id
-        quote_tweet = tweet.get('target_object', {}).get('quoted_status',{}).get('user',{}).get('id_str')
+            retweeted = tweet.get('retweeted')
+            from_self = tweet.get('user',{}).get('id_str','') == self.user_id
+            quote_tweet = tweet.get('target_object', {}).get('quoted_status',{}).get('user',{}).get('id_str')
+            print from_self
+            print retweeted
+            print quote_tweet
 
-        if not from_self and ((retweeted is not None and not retweeted) or quote_tweet):
+            if not from_self and ((retweeted is not None and not retweeted) or quote_tweet):
+                print "hereee"
+                tweetId = tweet.get('id_str')
+                if quote_tweet:
+                    screenName = tweet.get('target_object', {}).get('user',{}).get('screen_name')
+                else:
+                    screenName = tweet.get('user',{}).get('screen_name')
 
-            tweetId = tweet.get('id_str')
-            if quote_tweet:
-                screenName = tweet.get('target_object', {}).get('user',{}).get('screen_name')
-            else:
-                screenName = tweet.get('user',{}).get('screen_name')
+                sorry = None
+                if data.lower().find('care') > -1:
+                    chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
+                    sorry = self.clean_tweet(prefixes[randint(0, len(prefixes) - 1)] + sorrys[randint(0, len(sorrys) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)], screenName)
+                else:
+                    chatResponse = (prefixes[randint(0, len(prefixes) - 1)] + ' ' + self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + emojis[randint(0, len(emojis) - 1)]
 
-            sorry = None
-            if data.lower().find('compassion') > -1:
-                chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
-                sorry = self.clean_tweet(prefixes[randint(0, len(prefixes) - 1)] + sorrys[randint(0, len(sorrys) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)], screenName)
-            else:
-                chatResponse = (prefixes[randint(0, len(prefixes) - 1)] + ' ' + self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + emojis[randint(0, len(emojis) - 1)]
+                replyText = self.clean_tweet(chatResponse, screenName)
+                print replyText
 
-            replyText = self.clean_tweet(chatResponse, screenName)
+                try:
+                    print "90"
+                    self.send_reply(replyText, tweetId)
+                    if sorry:
+                        time.sleep(5)
+                        self.send_reply(sorry, tweetId)
+                except tweepy.TweepError, e:
+                    print e
+                    pass
 
-            try:
-                self.send_reply(replyText, tweetId)
-                if sorry:
-                    time.sleep(5)
-                    self.send_reply(sorry, tweetId)
-            except tweepy.TweepError:
-                pass
+                if quote_tweet == '774720778998874112' or tweet.get('in_reply_to_user_id_str') == '774720778998874112':
+                    f = open("liberal_tweets.txt")
+                    lib_lines = f.readlines()
+                    num_lib_lines = 0
+                    for l in lib_lines:
+                        num_lib_lines += 1
+                    lib_tweet = self.clean_tweet(lib_lines[randint(1, num_lib_lines - 1)].replace('\n', '') + happy_emojis[randint(0, len(happy_emojis) - 1)] + happy_emojis[randint(0, len(happy_emojis) - 1)], screenName)
 
-            if quote_tweet == '774720778998874112' or tweet.get('in_reply_to_user_id_str') == '774720778998874112':
-                f = open("liberal_tweets.txt")
-                lib_lines = f.readlines()
-                num_lib_lines = 0
-                for l in lib_lines:
-                    num_lib_lines += 1
-                lib_tweet = self.clean_tweet(lib_lines[randint(1, num_lib_lines - 1)].replace('\n', '') + happy_emojis[randint(0, len(happy_emojis) - 1)] + happy_emojis[randint(0, len(happy_emojis) - 1)], screenName)
-
-                liberal_tweet(lib_tweet)
-                f.close()
-
-
+                    liberal_tweet(lib_tweet)
+                    f.close()
 
     def on_error(self, status):
         print status

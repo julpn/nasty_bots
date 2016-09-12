@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3fb6105c-6569-4593-922a-0b3b9722085b" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nice_tweets.txt" afterPath="$PROJECT_DIR$/nice_tweets.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lives_matter_hate_tweets.txt" afterPath="$PROJECT_DIR$/lives_matter_hate_tweets.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mens_hate_tweets.txt" afterPath="$PROJECT_DIR$/mens_hate_tweets.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/reply.py" afterPath="$PROJECT_DIR$/reply.py" />
     </list>
     <ignored path="botfamily.iws" />
@@ -26,34 +28,34 @@
     <splitter split-orientation="horizontal" split-proportion="0.74326116">
       <split-first>
         <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-          <file leaf-file-name="twitter_search.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/twitter_search.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-18.88889">
-                  <caret line="36" column="24" selection-start-line="36" selection-start-column="23" selection-end-line="36" selection-end-column="24" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="tweet_maker.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/tweet_maker.py">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-13.888889">
-                  <caret line="26" column="21" selection-start-line="26" selection-start-column="20" selection-end-line="26" selection-end-column="21" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
           <file leaf-file-name="reply.py" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/reply.py">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.59322035">
-                  <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+                <state vertical-scroll-proportion="0.84745765">
+                  <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
                   <folding>
                     <element signature="e#25#36#0" expanded="true" />
                   </folding>
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="streaming.py" pinned="false" current-in-tab="false">
+            <entry file="file:///Library/Python/2.7/site-packages/tweepy/streaming.py">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="293" column="0" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="lives_matter_hate_tweets.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/lives_matter_hate_tweets.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="-17.777779">
+                  <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -68,31 +70,11 @@
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="uncle_keys.py" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/uncle_keys.py">
+          <file leaf-file-name="mens_hate_tweets.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/mens_hate_tweets.txt">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="6" column="29" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="29" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="liberal_tweets.txt" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/liberal_tweets.txt">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0">
-                  <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/.gitignore">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-6.111111">
-                  <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+                <state vertical-scroll-proportion="-33.88889">
+                  <caret line="62" column="109" selection-start-line="62" selection-start-column="109" selection-end-line="62" selection-end-column="109" />
                   <folding />
                 </state>
               </provider>
@@ -103,6 +85,26 @@
               <provider selected="true" editor-type-id="text-editor">
                 <state vertical-scroll-proportion="0.0">
                   <caret line="6" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="30" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="gun_hate_tweets.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/gun_hate_tweets.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="39" column="134" selection-start-line="39" selection-start-column="134" selection-end-line="39" selection-end-column="134" />
+                  <folding />
+                </state>
+              </provider>
+            </entry>
+          </file>
+          <file leaf-file-name="liberal_tweets.txt" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/liberal_tweets.txt">
+              <provider selected="true" editor-type-id="text-editor">
+                <state vertical-scroll-proportion="0.0">
+                  <caret line="10" column="73" selection-start-line="10" selection-start-column="73" selection-end-line="10" selection-end-column="73" />
                   <folding />
                 </state>
               </provider>
@@ -193,10 +195,7 @@
         <option value="$PROJECT_DIR$/lives_matter_hate_speech.py" />
         <option value="$PROJECT_DIR$/uncle_hate_speech.py" />
         <option value="$PROJECT_DIR$/twitter_search.py" />
-        <option value="$PROJECT_DIR$/lives_matter_hate_tweets.txt" />
         <option value="$PROJECT_DIR$/mens_nice_tweets.txt" />
-        <option value="$PROJECT_DIR$/mens_hate_tweets.txt" />
-        <option value="$PROJECT_DIR$/gun_hate_tweets.txt" />
         <option value="$PROJECT_DIR$/run_it.py" />
         <option value="$PROJECT_DIR$/liberal_keys.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
@@ -204,6 +203,9 @@
         <option value="$PROJECT_DIR$/liberal_tweets.txt" />
         <option value="$PROJECT_DIR$/bot.py" />
         <option value="$PROJECT_DIR$/nice_tweets.txt" />
+        <option value="$PROJECT_DIR$/gun_hate_tweets.txt" />
+        <option value="$PROJECT_DIR$/mens_hate_tweets.txt" />
+        <option value="$PROJECT_DIR$/lives_matter_hate_tweets.txt" />
         <option value="$PROJECT_DIR$/reply.py" />
       </list>
     </option>
@@ -517,7 +519,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3138686" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3138686" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -676,13 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="16" column="14" selection-start-line="16" selection-start-column="8" selection-end-line="16" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lives_matter_hate_tweets.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="57" column="136" selection-start-line="57" selection-start-column="136" selection-end-line="57" selection-end-column="136" />
           <folding />
         </state>
       </provider>
@@ -691,22 +686,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
           <caret line="22" column="29" selection-start-line="0" selection-start-column="0" selection-end-line="32" selection-end-column="128" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/gun_hate_tweets.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="39" column="134" selection-start-line="39" selection-start-column="134" selection-end-line="39" selection-end-column="134" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/mens_hate_tweets.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="59" column="46" selection-start-line="59" selection-start-column="46" selection-end-line="59" selection-end-column="46" />
           <folding />
         </state>
       </provider>
@@ -755,14 +734,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file:///Library/Python/2.7/site-packages/tweepy/streaming.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-13.222222">
-          <caret line="393" column="0" selection-start-line="393" selection-start-column="0" selection-end-line="393" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/lives_matter_hate_speech.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -791,14 +762,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.08196721">
           <caret line="6" column="30" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lives_matter_keys.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="6" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="30" />
           <folding />
         </state>
       </provider>
@@ -869,10 +832,50 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/lives_matter_keys.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="6" column="13" selection-start-line="0" selection-start-column="0" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file:///Library/Python/2.7/site-packages/tweepy/streaming.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="293" column="0" selection-start-line="293" selection-start-column="0" selection-end-line="293" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gun_hate_tweets.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0">
+          <caret line="39" column="134" selection-start-line="39" selection-start-column="134" selection-end-line="39" selection-end-column="134" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/mens_hate_tweets.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-33.88889">
+          <caret line="62" column="109" selection-start-line="62" selection-start-column="109" selection-end-line="62" selection-end-column="109" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lives_matter_hate_tweets.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-17.777779">
+          <caret line="32" column="76" selection-start-line="32" selection-start-column="76" selection-end-line="32" selection-end-column="76" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/reply.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59322035">
-          <caret line="88" column="37" selection-start-line="88" selection-start-column="37" selection-end-line="88" selection-end-column="37" />
+        <state vertical-scroll-proportion="0.84745765">
+          <caret line="109" column="0" selection-start-line="109" selection-start-column="0" selection-end-line="109" selection-end-column="0" />
           <folding>
             <element signature="e#25#36#0" expanded="true" />
           </folding>
