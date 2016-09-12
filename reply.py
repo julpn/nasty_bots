@@ -77,7 +77,7 @@ class ReplyToTweet(StreamListener):
                 chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
                 sorry = self.clean_tweet(prefixes[randint(0, len(prefixes) - 1)] + sorrys[randint(0, len(sorrys) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)], screenName)
             else:
-                chatResponse = (self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + emojis[randint(0, len(emojis) - 1)]
+                chatResponse = (prefixes[randint(0, len(prefixes) - 1)] + ' ' + self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + emojis[randint(0, len(emojis) - 1)]
 
             replyText = self.clean_tweet(chatResponse, screenName)
 
