@@ -49,11 +49,17 @@ class ReplyToTweet(StreamListener):
 
         retweeted = tweet.get('retweeted')
         from_self = tweet.get('user',{}).get('id_str','') == self.user_id
+        quote_tweet = tweet.get('target_object', {}).get('quoted_status',{}).get('user',{}).get('id_str')
 
-        if retweeted is not None and not retweeted and not from_self:
+        if not from_self and ((retweeted is not None and not retweeted) or quote_tweet):
+            print "here"
 
             tweetId = tweet.get('id_str')
-            screenName = tweet.get('user',{}).get('screen_name')
+            if quote_tweet:
+                screenName = tweet.get('target_object', {}).get('user',{}).get('screen_name')
+            else:
+                screenName = tweet.get('user',{}).get('screen_name')
+
             sorry = None
             if data.lower().find('compassion') > -1:
                 chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
@@ -75,8 +81,8 @@ class ReplyToTweet(StreamListener):
                     time.sleep(5)
                     self.send_reply(sorry, tweetId)
             except tweepy.TweepError:
-                replyText += ' ' + str(randint(0, 200)) + ' hugs!'
-               # self.send_reply(replyText, tweetId)
+                pass
+
 
     def on_error(self, status):
         print status

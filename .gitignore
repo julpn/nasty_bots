@@ -1,2 +1,6 @@
 *.pem
 *.log
+mens_keys.py
+gun_keys.py
+uncle_keys.py
+lives_matter_keys.py
