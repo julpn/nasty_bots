@@ -18,6 +18,12 @@ def gun_bot():
     f.close()
 
 def gun_reply():
-    streamListener = ReplyToTweet(consumer_key, consumer_secret, access_token, access_token_secret, user_id, nice_file)
-    twitterStream = Stream(streamListener.auth, streamListener)
-    twitterStream.userstream(_with='user')
+    while True:
+        try:
+            streamListener = ReplyToTweet(consumer_key, consumer_secret, access_token, access_token_secret, user_id, nice_file)
+            twitterStream = Stream(streamListener.auth, streamListener)
+            twitterStream.userstream(_with='user')
+        except:
+            pass
+        else:
+            break

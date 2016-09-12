@@ -18,7 +18,7 @@ def make_that_tweet():
         x = 0
         for text in raw:
             pos = text.lower().find(term)
-            if pos < 50 or pos > len(text) - 50 or text.find('@') > -1 or text.find('ass') > -1:
+            if pos < 50 or pos > len(text) - 50 or text.find('@') > -1 or text.find('ass') > -1 or text.find('that amazing feel') > -1:
                 pass
             else:
                 a_parts.append(text[:pos])
