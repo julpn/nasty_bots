@@ -10,7 +10,7 @@ def replace_link(text, location):
 
 def make_that_tweet():
     results = []
-    terms = ['obummer', 'sjw', 'cuck', 'feminazi']
+    terms = ['obummer', 'sjw', 'cuck', 'feminazi', 'idiot liberal', 'sick hillary', 'killary', 'lyin hillary']
     a_parts = []
     b_parts = []
     for term in terms:

@@ -9,8 +9,10 @@ from tweepy import API
 from random import randint
 import tweepy
 import time
+from bot import liberal_tweet
 
 import logging
+
 
 from apscheduler.schedulers.background import BackgroundScheduler
 
@@ -19,6 +21,7 @@ punc = ['.', '', '!', '!!', '!!!', '!!!', '-', '--']
 sorrys = ['Hey, I thought about what you said last night and I am so sorry!', "Wow, I couldn't sleep night. You were right!",
           "Hey again, I keep thinking about our conversation. I was very rude.", "Hi there, last night was really rough. You were right",
           "I said some things I regret last night.", "I was up all night thinking about what you said. Wow."]
+prefixes = ["Wow."]
 
 class ReplyToTweet(StreamListener):
 
@@ -40,8 +43,14 @@ class ReplyToTweet(StreamListener):
             self.num_lines += 1
         f.close()
 
+    def clean_tweet(self, text, screename):
+        text += punc[randint(0, len(punc) - 1)]
+        if len(text) > 140:
+            text = text[0:139] + '…'
+        text = '@' + screename + ' ' + text
+        return text
+
     def send_reply(self, text, id):
-        print text
         self.twitterApi.update_status(status=text, in_reply_to_status_id=text)
 
     def on_data(self, data):
@@ -52,7 +61,6 @@ class ReplyToTweet(StreamListener):
         quote_tweet = tweet.get('target_object', {}).get('quoted_status',{}).get('user',{}).get('id_str')
 
         if not from_self and ((retweeted is not None and not retweeted) or quote_tweet):
-            print "here"
 
             tweetId = tweet.get('id_str')
             if quote_tweet:
@@ -63,25 +71,31 @@ class ReplyToTweet(StreamListener):
             sorry = None
             if data.lower().find('compassion') > -1:
                 chatResponse = 'fuck you libtard get fucked by ' + str(randint(5, 9000)) + ' dicks'
-                sorry = '@' + screenName + ' ' + sorrys[randint(0, len(sorrys) - 1)] + str(randint(50,1000)) + ' apologies' + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)]
+                sorry = self.clean_tweet(sorrys[randint(0, len(sorrys) - 1)] + str(randint(50,1000)) + ' apologies' + emojis[randint(0, len(emojis) - 1)] + emojis[randint(0, len(emojis) - 1)], screenName)
             else:
-                chatResponse = (self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + punc[randint(0, len(punc) - 1)] + emojis[randint(0, len(emojis) - 1)]
+                chatResponse = (self.lines[randint(0, self.num_lines - 1)]).replace('\n', '') + emojis[randint(0, len(emojis) - 1)]
 
-            replyText = '@' + screenName + ' ' + chatResponse
-
-            if len(replyText) > 140:
-                replyText = replyText[0:139] + '…'
+            replyText = self.clean_tweet(chatResponse, screenName)
 
             try:
-                print replyText
                 self.send_reply(replyText, tweetId)
                 if sorry:
-                    if len(sorry) > 140:
-                        sorry = replyText[0:139] + '…'
                     time.sleep(5)
                     self.send_reply(sorry, tweetId)
             except tweepy.TweepError:
                 pass
+
+            if quote_tweet == '774720778998874112' or tweet.get('in_reply_to_user_id_str') == '774720778998874112':
+                f = open("liberal_tweets.txt")
+                lib_lines = f.readlines()
+                num_lib_lines = 0
+                for l in lib_lines:
+                    num_lib_lines += 1
+                lib_tweet = self.clean_tweet(lib_lines[randint(1, num_lib_lines - 1)].replace('\n', ''), screenName)
+
+                liberal_tweet(lib_tweet)
+                f.close()
+
 
 
     def on_error(self, status):

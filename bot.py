@@ -5,6 +5,7 @@ from tweepy import API
 import tweepy
 import time
 from random import randint
+from liberal_keys import consumer_key, consumer_secret, access_token, access_token_secret
 
 def poster(tweets, consumer_key, consumer_secret, access_token, access_token_secret):
     auth = OAuthHandler(consumer_key, consumer_secret)
@@ -21,6 +22,14 @@ def poster(tweets, consumer_key, consumer_secret, access_token, access_token_sec
 
     try:
         twitterApi.update_status(status=t)
-        time.sleep(randint(600, 1200))
+        time.sleep(randint(240, 360))
     except tweepy.TweepError:
         pass
+
+
+def liberal_tweet(tweet):
+    # Separate authentication for liberal bot
+    lib_auth = tweepy.OAuthHandler(consumer_key, consumer_secret)
+    lib_auth.set_access_token(access_token, access_token_secret)
+    lib_api = tweepy.API(lib_auth)
+    lib_api.update_status(tweet)
